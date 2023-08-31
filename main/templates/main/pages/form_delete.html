@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="conatiner-fluid content-inner mt-n5 py-0">
+
+  <div class="col-md-12">
+  <div class="col-md-12 col-lg-12">
+      <div class="card credit-card-widget" data-aos="fade-up" data-aos-delay="900">
+         <div class="card-body">
+            <div class="mb-4">
+               <div class="flex-wrap d-flex justify-content-between">
+                  <h2 class="mb-2">Удалить {{ object }}?</h2>
+               </div>
+            </div>
+            <form method="post" class="grid-cols-2 d-grid gap-card">
+               {% csrf_token %}
+               <button type="submit" class="p-2 btn btn-primary text-uppercase">УДАЛИТЬ</button>
+               <a class="p-2 btn btn-info text-uppercase" href="{% url 'main:list_mailing' %}">ОТМЕНИТЬ</a>
+            </form>
+         </div>
+      </div>
+   </div>
+
+</div>
+{% endblock %}
