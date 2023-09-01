@@ -2,15 +2,9 @@ from django.contrib import admin
 from main.models import MailingAttempt, MailingSettings, MailingMessage
 from users.models import User
 
+admin.site.register(MailingAttempt)
 
-@admin.register(MailingAttempt)
-class MailingAttempt(admin.ModelAdmin):
-    fields = ('client', 'mailing_settings', 'message', 'status',)
-
-
-@admin.register(User)
-class Client(admin.ModelAdmin):
-    fields = ('email', 'full_name', 'comment',)
+admin.site.register(User)
 
 
 @admin.register(MailingSettings)

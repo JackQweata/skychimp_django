@@ -130,6 +130,7 @@
         </div>
     </div>
 
+    {% csrf_token %}
     <div class="col-lg-3">
         <div class="card-transparent mb-0 desk-info">
             <div class="card-body p-0">
@@ -213,13 +214,19 @@
 
                                         <div class="iq-media-group-1">
                                           <p>Всего клиентов: {{ item.clients.all|length }}</p>
+                                            <div class="d-flex">
+                                                <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2 11.9993C2 6.48027 6.48 1.99927 12 1.99927C17.53 1.99927 22 6.48027 22 11.9993C22 17.5203 17.53 21.9993 12 21.9993C6.48 21.9993 2 17.5203 2 11.9993ZM11.12 8.20927C11.12 7.73027 11.52 7.32927 12 7.32927C12.48 7.32927 12.87 7.73027 12.87 8.20927V12.6293C12.87 13.1103 12.48 13.4993 12 13.4993C11.52 13.4993 11.12 13.1103 11.12 12.6293V8.20927ZM12.01 16.6803C11.52 16.6803 11.13 16.2803 11.13 15.8003C11.13 15.3203 11.52 14.9303 12 14.9303C12.49 14.9303 12.88 15.3203 12.88 15.8003C12.88 16.2803 12.49 16.6803 12.01 16.6803Z" fill="currentColor"></path>
+                                                </svg>
+                                                <p id="info-milling-{{ item.pk }}">{{ item.mailing_settings.get_status_display }}</p>
+                                            </div>
                                         </div>
-                                        <a type="button" class="btn btn-success justify-content-center">
+                                        <button type="button"  class="btn btn-success justify-content-center bt-start-malling mt-2" onclick="start_malling({{ item.pk }}, this)">
                                             <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.08 22H7.91C4.38 22 2 19.729 2 16.34V7.67C2 4.28 4.38 2 7.91 2H16.08C19.62 2 22 4.28 22 7.67V16.34C22 19.729 19.62 22 16.08 22ZM14.27 11.25H7.92C7.5 11.25 7.17 11.59 7.17 12C7.17 12.42 7.5 12.75 7.92 12.75H14.27L11.79 15.22C11.65 15.36 11.57 15.56 11.57 15.75C11.57 15.939 11.65 16.13 11.79 16.28C12.08 16.57 12.56 16.57 12.85 16.28L16.62 12.53C16.9 12.25 16.9 11.75 16.62 11.47L12.85 7.72C12.56 7.43 12.08 7.43 11.79 7.72C11.5 8.02 11.5 8.49 11.79 8.79L14.27 11.25Z" fill="currentColor"></path>
                                             </svg>
                                             Разослать сейчас
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -473,5 +480,36 @@
         </div>
     </div>
 </div>
-      </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const csrf_token = $('input[name="csrfmiddlewaretoken"]')[0].defaultValue;
+
+    start_malling = (pk, element) =>{
+        if (!pk) return console.log('err');
+
+        const info_message = $(`#info-milling-${pk}`)[0]
+
+        info_message.innerText = 'Запущена'
+        $(element).prop('disabled', true);
+
+         $.ajax({
+            url: "{% url 'main:req_task' %}",
+            method: 'post',
+            contentType: 'application/json',
+            data: JSON.stringify({pk: pk}),
+            beforeSend: (xhr, settings) => xhr.setRequestHeader('X-CSRFToken', csrf_token),
+            success: function(data) {
+                $(element).prop('disabled', false);
+
+                if (!data.status) return info_message.innerText = data.message;
+
+                info_message.innerText = 'Завершена'
+            }
+        });
+    };
+
+</script>
 {% endblock %}

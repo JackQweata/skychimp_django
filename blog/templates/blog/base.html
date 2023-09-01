@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Skychimp</title>
+
+      <!-- Favicon -->
+      {% include 'main/includes/inc_head.html' %}
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WNGH9RL');window.tag_manager_event='dashboard-free-preview';window.tag_manager_product='HopeUI';</script>
+        <!-- End Google Tag Manager -->
+  </head>
+  <body class="uikit " data-bs-spy="scroll" data-bs-target="#elements-section" data-bs-offset="0" tabindex="0">
+    <!-- loader Start -->
+    <div id="loading">
+      <div class="loader simple-loader">
+          <div class="loader-body"></div>
+      </div>    </div>
+    <!-- loader END -->
+
+      <div class="wrapper">
+    <span class="uisheet screen-darken"></span>
+    {% include 'blog/includes/inc_navbar.html' %}
+
+    {% block content %}
+    {% endblock %}
+
+    <div id ="back-to-top" style="display: none;">
+        <a class="p-0 btn btn-primary btn-sm position-fixed top" id="top" href="#top">
+            <svg class="icon-30" width="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 15.5L12 8.5L19 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </a>
+    </div>
+    <!-- Footer Section Start -->
+    {% include 'blog/includes/inc_footer.html' %}
+    <!-- Footer Section End -->
+      </div>
+
+    <!-- Library Bundle Script -->
+    {% include 'main/includes/inc_scripts.html' %}
+  </body>
+</html>

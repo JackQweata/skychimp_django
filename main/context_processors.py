@@ -3,7 +3,11 @@ from datetime import datetime, timedelta
 
 
 def user_notifications(request):
-    day_after_now = datetime.now() + timedelta(days=1)
-    attempt = MailingAttempt.objects.filter(user=request.user, status='failure', timestamp__lte=day_after_now)
+    if not request.user.is_authenticated:
+        return {'notifications': []}
+
+    # day_after_now = datetime.now() + timedelta(days=1)
+    # print(day_after_now)
+    attempt = MailingAttempt.objects.filter(user=request.user, status='failure')
 
     return {'notifications': attempt}

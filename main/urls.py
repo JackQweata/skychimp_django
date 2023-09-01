@@ -25,4 +25,6 @@ urlpatterns = [
     path('edit_task/<int:pk>/', login_required(MailingAttemptUpdateView.as_view()), name='update_task'),
     path('detail_task/<int:pk>/', login_required(MailingAttemptDetailView.as_view()), name='detail_task'),
     path('delete_task/<int:pk>/', login_required(MailingAttemptDeleteView.as_view()), name='delete_task'),
+
+    path('req_task/', login_required(req_start_milling), name='req_task'),
 ]

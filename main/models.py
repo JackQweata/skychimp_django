@@ -15,8 +15,8 @@ STATUS_CHOICES = (
 
 STATUS_SETTINGS = (
     ('created', 'Создан'),
-    ('completed', 'завершена'),
-    ('launched', 'запущена'),
+    ('completed', 'Завершена'),
+    ('launched', 'Запущена'),
 )
 
 
@@ -37,7 +37,7 @@ class MailingSettings(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.sending_time} -> {self.periodicity}'
+        return f'{self.sending_time} -> {self.get_periodicity_display()}'
 
     class Meta:
         verbose_name = 'Настройка'

@@ -1,0 +1,228 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+ <div class="conatiner-fluid content-inner mt-n5 py-0">
+<div class="row">
+   <div class="col-md-12 col-lg-12">
+      <div class="row row-cols-1">
+         <div class="overflow-hidden d-slider1 swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <ul class="p-0 m-0 mb-2 swiper-wrapper list-inline" id="swiper-wrapper-f06f0cc2f505ed16" aria-live="polite">
+
+               <li class="swiper-slide card card-slide swiper-slide-active aos-init aos-animate" data-aos="fade-up" data-aos-delay="700" role="group" aria-label="1 / 7" style="width: 306.5px; margin-right: 32px;">
+                  <div class="card-body">
+                     <div class="progress-widget">
+                        <div class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="90" data-type="percent" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
+                           <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                              <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z"></path>
+                           </svg>
+                           <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress">
+                              <circle class="circle-progress-circle" cx="50" cy="50" r="46" fill="none" stroke="#ddd" stroke-width="8"></circle>
+                              <path d="M 50 4 A 46 46 0 1 1 22.96187839454623 12.785218258752423" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path>
+                              <text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">100%</text>
+                           </svg>
+                        </div>
+                        <div class="progress-detail">
+                           <p class="mb-2">Партнеры</p>
+                           <h4 class="counter" style="visibility: visible;">{{ users_len }}</h4>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li class="swiper-slide card card-slide swiper-slide-next aos-init aos-animate" data-aos="fade-up" data-aos-delay="800" role="group" aria-label="2 / 7" style="width: 306.5px; margin-right: 32px;">
+                  <div class="card-body">
+                     <div class="progress-widget">
+                        <div class="text-center circle-progress-01 circle-progress circle-progress-info" data-min-value="0" data-max-value="100" data-value="80" data-type="percent" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+                           <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                              <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z"></path>
+                           </svg>
+                        <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress"><circle class="circle-progress-circle" cx="50" cy="50" r="46" fill="none" stroke="#ddd" stroke-width="8"></circle><path d="M 50 4 A 46 46 0 1 1 6.25140025042294 35.78521825875241" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path><text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">100%</text></svg></div>
+                        <div class="progress-detail">
+                           <p class="mb-2">Сообщений</p>
+                           <h4 class="counter" style="visibility: visible;">{{ messages_len }}</h4>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li class="swiper-slide card card-slide aos-init aos-animate" data-aos="fade-up" data-aos-delay="900" role="group" aria-label="3 / 7" style="width: 306.5px; margin-right: 32px;">
+                  <div class="card-body">
+                     <div class="progress-widget">
+                        <div class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="70" data-type="percent" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70">
+                           <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                              <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z"></path>
+                           </svg>
+                        <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress"><circle class="circle-progress-circle" cx="50" cy="50" r="46" fill="none" stroke="#ddd" stroke-width="8"></circle><path d="M 50 4 A 46 46 0 1 1 6.25140025042294 64.2147817412476" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path><text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">70%</text></svg></div>
+                        <div class="progress-detail">
+                           <p class="mb-2">Клиентов</p>
+                           <h4 class="counter" style="visibility: visible;">{{ clients_len }}</h4>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li class="swiper-slide card card-slide aos-init aos-animate" data-aos="fade-up" data-aos-delay="1000" role="group" aria-label="4 / 7" style="width: 306.5px; margin-right: 32px;">
+                  <div class="card-body">
+                     <div class="progress-widget">
+                        <div class="text-center circle-progress-01 circle-progress circle-progress-info" data-min-value="0" data-max-value="100" data-value="60" data-type="percent" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60">
+                           <svg class="card-slie-arrow icon-24" width="24px" viewBox="0 0 24 24">
+                              <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z"></path>
+                           </svg>
+                        <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress"><circle class="circle-progress-circle" cx="50" cy="50" r="46" fill="none" stroke="#ddd" stroke-width="8"></circle><path d="M 50 4 A 46 46 0 1 1 22.96187839454624 87.21478174124758" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path><text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">60%</text></svg></div>
+                        <div class="progress-detail">
+                           <p class="mb-2">Рассылок</p>
+                           <h4 class="counter" style="visibility: visible;">{{ mallings_len }}</h4>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+            </ul>
+            <div class="swiper-button swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-f06f0cc2f505ed16" aria-disabled="false"></div>
+            <div class="swiper-button swiper-button-prev swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-f06f0cc2f505ed16" aria-disabled="true"></div>
+         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+      </div>
+   </div>
+   <section class="steps mt-5">
+      <div class="container">
+          <div class="d-flex justify-content-center">
+              <h2 class="section-title">15 минут — и рассылка готова</h2>
+          </div>
+        <div class="steps__row">
+          <div class="steps__list">
+            <div class="steps__item active">
+
+              <div class="steps__text-block">
+                <h3>Шаг 1.  <br>
+    Загрузите базу email-адресов</h3>
+                <p>Или соберите email при помощи форм подписки Unisender.</p>
+              </div>
+            </div>
+            <div class="steps__item active">
+
+              <div class="steps__text-block">
+                <h3>Шаг 2.  <br>
+    Создайте красивое письмо</h3>
+                <p>В удобном конструкторе писем, с нуля или по готовому шаблону.</p>
+              </div>
+            </div>
+            <div class="steps__item active">
+
+              <div class="steps__text-block">
+                <h3>Шаг 3. <br>
+    Отправьте email и следите за результатами</h3>
+                <p>Будьте в курсе, какие письма работают, и улучшайте ваши email-рассылки.</p>
+              </div>
+            </div>
+          </div>
+          <div class="steps__video-list">
+            <div class="steps__video-wrapper active" style="">
+              <video muted="" playsinline="">
+                <source src="https://www.unisender.com/wp-content/themes/UniSender/templates/home-v3/video/step-2.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+   </section>
+    <section class="banner banner--first">
+        <div class="container">
+            <h2 class="section-title">Создайте свою первую рассылку в SKYCHIMP </h2>
+                <a type="button" class="btn btn-primary" rel="noopener" href="{% url 'main:home' %}" target="_blank">Начать бесплатно</a>
+                <p><i>до 1500 писем без оплаты</i></p>
+        </div>
+    </section>
+    <section class="tariffs">
+  <div class="container">
+    <h2 class="section-title">Подберите удобный тариф</h2>
+    <div class="tariffs__list mt-5">
+      <div class="tariffs__item ">
+        <h3 class="tariffs__name">Фри</h3>
+
+        <div class="tariffs__price">
+          <strong>
+            <span class="tariffs__count">0 </span> ₽
+          </strong>
+        </div>
+
+        <div class="tariffs__period">в месяц</div>
+        <p class="tariffs__description">Бесплатно</p>
+        <a class="button button--transparent " rel="noopener" href="{% url 'main:home' %}" target="_blank">Начать</a>
+      </div>
+      <div class="tariffs__item tariffs__item--light">
+        <h3 class="tariffs__name">Лайт</h3>
+
+        <div class="tariffs__price">
+          от <strong>
+            <span class="tariffs__count">560</span> ₽
+        </strong>
+        </div>
+
+        <div class="tariffs__period">в месяц</div>
+        <p class="tariffs__description">Базовые инструменты для рассылок</p>
+        <a class="button button--transparent " rel="noopener" href="{% url 'main:home' %}" target="_blank">Смотреть цены</a>
+      </div>
+      <div class="tariffs__item recommend tariffs__item--standard">
+        <div class="tariffs__recommendation">РЕКОМЕНДУЕМ</div>
+        <h3 class="tariffs__name">Стандарт</h3>
+
+        <div class="tariffs__price">
+          от <strong>
+                <span class="tariffs__count">840</span> ₽
+            </strong>
+        </div>
+
+        <div class="tariffs__period">в месяц</div>
+        <p class="tariffs__description">Продвинутые инструменты для рассылок</p>
+        <a class="button button--transparent " rel="noopener" href="{% url 'main:home' %}" target="_blank">Смотреть цены</a>
+      </div>
+    </div>
+  </div>
+</section>
+    <section class="cases mt-5 pb-5">
+      <div class="container">
+          <div class="d-flex justify-content-center">
+              <h2 class="section-title">Истории успеха</h2>
+          </div>
+        <p class="cases__description">Как SKYCHIMP помогает компаниям привлекать платящих клиентов.</p>
+        <div class="row justify-content-between">
+          <div class="col-md-6 cases__item">
+            <a class="cases__image-wrapper" href="https://www.unisender.com/ru/blog/keysy/setters-education/" target="_blank" rel="noopener">
+              <img class="img-responsive lazyloaded" data-src="https://www.unisender.com/ru/blog/wp-content/uploads/2022/07/setters-education.jpg" width="300" height="156" alt="Рассылка SETTERS EDUCATION. Как собирать подписчиков по щелчку пальцев и поддерживать нереальный опенрейт" src="https://www.unisender.com/ru/blog/wp-content/uploads/2022/07/setters-education.jpg">
+            </a>
+            <h3>Рассылка SETTERS EDUCATION. Как собирать подписчиков по щелчку пальцев и поддерживать нереальный опенрейт</h3>
+            <a href="https://www.unisender.com/ru/blog/keysy/setters-education/" target="_blank" rel="noopener">Смотреть</a>
+          </div>
+          <div class="col-md-6 cases__item">
+            <a class="cases__image-wrapper" href="https://www.unisender.com/ru/blog/keysy/kejs-jivo-o-srochnom-pereezde-v-unisender-go/" target="_blank" rel="noopener">
+              <img class="img-responsive lazyloaded" data-src="https://www.unisender.com/ru/blog/wp-content/uploads/2023/05/15_kak_skorost_otveta_menegera_povliyala_na-vybor_email_servisa_index.jpg" width="300" height="156" alt="Как Jivo за 5 дней переехали с Amazon SES на Unisender Go" src="https://www.unisender.com/ru/blog/wp-content/uploads/2023/05/15_kak_skorost_otveta_menegera_povliyala_na-vybor_email_servisa_index.jpg">
+            </a>
+            <h3>Как Jivo за 5 дней переехали с Amazon SES на Unisender Go</h3>
+            <a href="https://www.unisender.com/ru/blog/keysy/kejs-jivo-o-srochnom-pereezde-v-unisender-go/" target="_blank" rel="noopener">Смотреть</a>
+          </div>
+          <div class="col-md-6 cases__item">
+            <a class="cases__image-wrapper" href="https://www.unisender.com/ru/blog/keysy/stradarium-newsletter/" target="_blank" rel="noopener">
+              <img class="img-responsive lazyloaded" data-src="https://www.unisender.com/ru/blog/wp-content/uploads/2022/12/stradarium-oblozhka-3.jpg" width="300" height="156" alt="Рассылка Страдариума. Как общаться с подписчиками от первого лица и получать 50% открываемости" src="https://www.unisender.com/ru/blog/wp-content/uploads/2022/12/stradarium-oblozhka-3.jpg">
+            </a>
+            <h3>Рассылка Страдариума. Как общаться с подписчиками от первого лица и получать 50% открываемости</h3>
+            <a href="https://www.unisender.com/ru/blog/keysy/stradarium-newsletter/" target="_blank" rel="noopener">Смотреть</a>
+          </div>
+          <div class="col-md-6 cases__item">
+            <a class="cases__image-wrapper" href="https://www.unisender.com/ru/blog/keysy/detective-story/" target="_blank" rel="noopener">
+              <img class="img-responsive lazyloaded" data-src="https://www.unisender.com/ru/blog/wp-content/uploads/2022/11/6_detektiv-glav.jpg" width="300" height="156" alt="Unisender забанил нас за спам. Но я вычислила виновника и всё исправила" src="https://www.unisender.com/ru/blog/wp-content/uploads/2022/11/6_detektiv-glav.jpg">
+            </a>
+            <h3>Unisender забанил нас за спам. Но я вычислила виновника и всё исправила</h3>
+            <a href="https://www.unisender.com/ru/blog/keysy/detective-story/" target="_blank" rel="noopener">Смотреть</a>
+          </div>
+        </div>
+          <div class="d-flex justify-content-center">
+            <a class="btn btn-primary" rel="noopener" href="{% url 'blog:blogs' %}" target="_blank">Все кейсы</a>
+          </div>
+      </div>
+    </section>
+<!--    <section class="start m-5">-->
+<!--      <div class="container start__wrapper">-->
+<!--        <h2 class="section-title">Создайте рассылку за считаные минуты</h2>-->
+<!--        <img width="247" height="153" class="img-responsive lazyloaded" data-src="https://www.unisender.com/wp-content/uploads/2022/10/rassylki.png" alt="Email-рассылки" src="https://www.unisender.com/wp-content/uploads/2022/10/rassylki.png">-->
+<!--        <a class="btn btn-primary" href="{% url 'main:home' %}" target="_blank">Начать бесплатно</a>-->
+<!--      </div>-->
+<!--    </section>-->
+</div>
+      </div>
+{% endblock %}
