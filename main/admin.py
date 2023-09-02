@@ -4,12 +4,15 @@ from users.models import User
 
 admin.site.register(MailingAttempt)
 
-admin.site.register(User)
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    fields = ('is_active',)
 
 
 @admin.register(MailingSettings)
 class MailingSettings(admin.ModelAdmin):
-    fields = ('sending_time', 'periodicity', 'status',)
+    fields = ('status',)
 
 
 @admin.register(MailingMessage)

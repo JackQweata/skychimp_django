@@ -64,7 +64,7 @@
                           <div class="ms-3 w-100">
                             <h6 class="mb-0 ">{{ item.message.title|truncatechars:15 }}</h6>
                             <div class="d-flex justify-content-between align-items-center">
-                                <p class="mb-0">Ошибка отправки</p>
+                                <p class="mb-0">{{ item.logs.last.get_status_display }}</p>
                             </div>
                           </div>
                       </div>

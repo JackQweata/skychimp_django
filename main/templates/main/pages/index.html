@@ -1,251 +1,109 @@
 {% extends 'main/base.html' %}
-
+{% load static %}
 {% block content %}
 <div class="conatiner-fluid content-inner mt-n5 py-0">
 <div class="row">
    <div class="col-md-12 col-lg-12">
       <div class="row row-cols-1">
-         <div class="overflow-hidden d-slider1 ">
-            <ul  class="p-0 m-0 mb-2 swiper-wrapper list-inline">
-               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="700">
+         <div class="overflow-hidden d-slider1 swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <ul class="p-0 m-0 mb-2 swiper-wrapper list-inline" id="swiper-wrapper-f06f0cc2f505ed16" aria-live="polite">
+               {% if users_list %}
+               <li class="swiper-slide card card-slide swiper-slide-active aos-init aos-animate" data-aos="fade-up" data-aos-delay="700" role="group" aria-label="1 / 7" style="width: 306.5px; margin-right: 32px;">
                   <div class="card-body">
                      <div class="progress-widget">
-                        <div id="circle-progress-01" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="90" data-type="percent">
-                           <svg class="card-slie-arrow icon-24" width="24"  viewBox="0 0 24 24">
-                              <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
-                           </svg>
-                        </div>
-                        <div class="progress-detail">
-                           <p  class="mb-2">Total Sales</p>
-                           <h4 class="counter">$560K</h4>
-                        </div>
-                     </div>
-                  </div>
-               </li>
-               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="800">
-                  <div class="card-body">
-                     <div class="progress-widget">
-                        <div id="circle-progress-02" class="text-center circle-progress-01 circle-progress circle-progress-info" data-min-value="0" data-max-value="100" data-value="80" data-type="percent">
+                        <div class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="90" data-type="percent" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
                            <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
-                              <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                              <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z"></path>
+                           </svg>
+                           <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress">
+                              <circle class="circle-progress-circle" cx="50" cy="50" r="46" fill="none" stroke="#ddd" stroke-width="8"></circle>
+                              <path d="M 50 4 A 46 46 0 1 1 22.96187839454623 12.785218258752423" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path>
+                              <text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">100%</text>
                            </svg>
                         </div>
                         <div class="progress-detail">
-                           <p  class="mb-2">Total Profit</p>
-                           <h4 class="counter">$185K</h4>
+                           <p class="mb-2">Партнеры</p>
+                           <h4 class="counter" style="visibility: visible;">{{ users_list|length }}</h4>
                         </div>
                      </div>
                   </div>
                </li>
-               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="900">
+               {% endif %}
+               <li class="swiper-slide card card-slide swiper-slide-next aos-init aos-animate" data-aos="fade-up" data-aos-delay="800" role="group" aria-label="2 / 7" style="width: 306.5px; margin-right: 32px;">
                   <div class="card-body">
                      <div class="progress-widget">
-                        <div id="circle-progress-03" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="70" data-type="percent">
+                        <div class="text-center circle-progress-01 circle-progress circle-progress-info" data-min-value="0" data-max-value="100" data-value="80" data-type="percent" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
                            <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
-                              <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                              <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z"></path>
                            </svg>
-                        </div>
+                        <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress"><circle class="circle-progress-circle" cx="50" cy="50" r="46" fill="none" stroke="#ddd" stroke-width="8"></circle><path d="M 50 4 A 46 46 0 1 1 6.25140025042294 35.78521825875241" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path><text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">100%</text></svg></div>
                         <div class="progress-detail">
-                           <p  class="mb-2">Total Cost</p>
-                           <h4 class="counter">$375K</h4>
+                           <p class="mb-2">Сообщений</p>
+                           <h4 class="counter" style="visibility: visible;">{{ messages_list|length }}</h4>
                         </div>
                      </div>
                   </div>
                </li>
-               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1000">
+               <li class="swiper-slide card card-slide aos-init aos-animate" data-aos="fade-up" data-aos-delay="900" role="group" aria-label="3 / 7" style="width: 306.5px; margin-right: 32px;">
                   <div class="card-body">
                      <div class="progress-widget">
-                        <div id="circle-progress-04" class="text-center circle-progress-01 circle-progress circle-progress-info" data-min-value="0" data-max-value="100" data-value="60" data-type="percent">
-                           <svg class="card-slie-arrow icon-24" width="24px"  viewBox="0 0 24 24">
-                              <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
-                           </svg>
-                        </div>
-                        <div class="progress-detail">
-                           <p  class="mb-2">Revenue</p>
-                           <h4 class="counter">$742K</h4>
-                        </div>
-                     </div>
-                  </div>
-               </li>
-               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1100">
-                  <div class="card-body">
-                     <div class="progress-widget">
-                        <div id="circle-progress-05" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="50" data-type="percent">
-                           <svg class="card-slie-arrow icon-24" width="24px"  viewBox="0 0 24 24">
-                              <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
-                           </svg>
-                        </div>
-                        <div class="progress-detail">
-                           <p  class="mb-2">Net Income</p>
-                           <h4 class="counter">$150K</h4>
-                        </div>
-                     </div>
-                  </div>
-               </li>
-               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1200">
-                  <div class="card-body">
-                     <div class="progress-widget">
-                        <div id="circle-progress-06" class="text-center circle-progress-01 circle-progress circle-progress-info" data-min-value="0" data-max-value="100" data-value="40" data-type="percent">
+                        <div class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="70" data-type="percent" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70">
                            <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
-                              <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                              <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z"></path>
                            </svg>
-                        </div>
+                        <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress"><circle class="circle-progress-circle" cx="50" cy="50" r="46" fill="none" stroke="#ddd" stroke-width="8"></circle><path d="M 50 4 A 46 46 0 1 1 6.25140025042294 64.2147817412476" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path><text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">70%</text></svg></div>
                         <div class="progress-detail">
-                           <p  class="mb-2">Today</p>
-                           <h4 class="counter">$4600</h4>
+                           <p class="mb-2">Клиентов</p>
+                           <h4 class="counter" style="visibility: visible;">{{ clients_list|length }}</h4>
                         </div>
                      </div>
                   </div>
                </li>
-               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1300">
+               <li class="swiper-slide card card-slide aos-init aos-animate" data-aos="fade-up" data-aos-delay="1000" role="group" aria-label="4 / 7" style="width: 306.5px; margin-right: 32px;">
                   <div class="card-body">
                      <div class="progress-widget">
-                        <div id="circle-progress-07" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="30" data-type="percent">
-                           <svg class="card-slie-arrow icon-24 " width="24" viewBox="0 0 24 24">
-                              <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                        <div class="text-center circle-progress-01 circle-progress circle-progress-info" data-min-value="0" data-max-value="100" data-value="60" data-type="percent" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60">
+                           <svg class="card-slie-arrow icon-24" width="24px" viewBox="0 0 24 24">
+                              <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z"></path>
                            </svg>
-                        </div>
+                        <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress"><circle class="circle-progress-circle" cx="50" cy="50" r="46" fill="none" stroke="#ddd" stroke-width="8"></circle><path d="M 50 4 A 46 46 0 1 1 22.96187839454624 87.21478174124758" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path><text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">60%</text></svg></div>
                         <div class="progress-detail">
-                           <p  class="mb-2">Members</p>
-                           <h4 class="counter">11.2M</h4>
+                           <p class="mb-2">Рассылок</p>
+                           <h4 class="counter" style="visibility: visible;">{{ mallings_list|length }}</h4>
                         </div>
                      </div>
                   </div>
                </li>
+               {% if blog_list %}
+               <li class="swiper-slide card card-slide aos-init aos-animate" data-aos="fade-up" data-aos-delay="900" role="group" aria-label="3 / 7" style="width: 306.5px; margin-right: 32px;">
+                  <div class="card-body">
+                     <div class="progress-widget">
+                        <div class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="70" data-type="percent" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70">
+                           <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                              <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z"></path>
+                           </svg>
+                        <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress"><circle class="circle-progress-circle" cx="50" cy="50" r="46" fill="none" stroke="#ddd" stroke-width="8"></circle><path d="M 50 4 A 46 46 0 1 1 6.25140025042294 64.2147817412476" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path><text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">70%</text></svg></div>
+                        <div class="progress-detail">
+                           <p class="mb-2">Блогов</p>
+                           <h4 class="counter" style="visibility: visible;">{{ blog_list|length }}</h4>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               {% endif %}
             </ul>
-            <div class="swiper-button swiper-button-next"></div>
-            <div class="swiper-button swiper-button-prev"></div>
-         </div>
+            <div class="swiper-button swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-f06f0cc2f505ed16" aria-disabled="false"></div>
+            <div class="swiper-button swiper-button-prev swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-f06f0cc2f505ed16" aria-disabled="true"></div>
+         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
       </div>
    </div>
    <div class="col-md-12 col-lg-8">
       <div class="row">
-         <div class="col-md-12">
-            <div class="card" data-aos="fade-up" data-aos-delay="800">
-               <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
-                  <div class="header-title">
-                     <h4 class="card-title">$855.8K</h4>
-                     <p class="mb-0">Gross Sales</p>
-                  </div>
-                  <div class="d-flex align-items-center align-self-center">
-                     <div class="d-flex align-items-center text-primary">
-                        <svg class="icon-12" xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24" fill="currentColor">
-                           <g>
-                              <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                           </g>
-                        </svg>
-                        <div class="ms-2">
-                           <span class="text-gray">Sales</span>
-                        </div>
-                     </div>
-                     <div class="d-flex align-items-center ms-3 text-info">
-                        <svg class="icon-12" xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24" fill="currentColor">
-                           <g>
-                              <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                           </g>
-                        </svg>
-                        <div class="ms-2">
-                           <span class="text-gray">Cost</span>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="dropdown">
-                     <a href="#" class="text-gray dropdown-toggle" id="dropdownMenuButton22" data-bs-toggle="dropdown" aria-expanded="false">
-                     This Week
-                     </a>
-                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton22">
-                        <li><a class="dropdown-item" href="#">This Week</a></li>
-                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                        <li><a class="dropdown-item" href="#">This Year</a></li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="card-body">
-                  <div id="d-main" class="d-main"></div>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-12 col-xl-6">
-            <div class="card" data-aos="fade-up" data-aos-delay="900">
-               <div class="flex-wrap card-header d-flex justify-content-between">
-                  <div class="header-title">
-                     <h4 class="card-title">Earnings</h4>
-                  </div>
-                  <div class="dropdown">
-                     <a href="#" class="text-gray dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        This Week
-                     </a>
-                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">This Week</a></li>
-                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                        <li><a class="dropdown-item" href="#">This Year</a></li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="card-body">
-                  <div class="flex-wrap d-flex align-items-center justify-content-between">
-                     <div id="myChart" class="col-md-8 col-lg-8 myChart"></div>
-                     <div class="d-grid gap col-md-4 col-lg-4">
-                        <div class="d-flex align-items-start">
-                           <svg class="mt-2 icon-14" xmlns="http://www.w3.org/2000/svg" width="14" viewBox="0 0 24 24" fill="#3a57e8">
-                              <g>
-                                 <circle cx="12" cy="12" r="8" fill="#3a57e8"></circle>
-                              </g>
-                           </svg>
-                           <div class="ms-3">
-                              <span class="text-gray">Fashion</span>
-                              <h6>251K</h6>
-                           </div>
-                        </div>
-                        <div class="d-flex align-items-start">
-                           <svg class="mt-2 icon-14" xmlns="http://www.w3.org/2000/svg" width="14" viewBox="0 0 24 24" fill="#4bc7d2">
-                              <g>
-                                 <circle cx="12" cy="12" r="8" fill="#4bc7d2"></circle>
-                              </g>
-                           </svg>
-                           <div class="ms-3">
-                              <span class="text-gray">Accessories</span>
-                              <h6>176K</h6>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-12 col-xl-6">
-            <div class="card" data-aos="fade-up" data-aos-delay="1000">
-               <div class="flex-wrap card-header d-flex justify-content-between">
-                  <div class="header-title">
-                     <h4 class="card-title">Conversions</h4>
-                  </div>
-                  <div class="dropdown">
-                     <a href="#" class="text-gray dropdown-toggle" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
-                        This Week
-                     </a>
-                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton3">
-                        <li><a class="dropdown-item" href="#">This Week</a></li>
-                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                        <li><a class="dropdown-item" href="#">This Year</a></li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="card-body">
-                  <div id="d-activity" class="d-activity"></div>
-               </div>
-            </div>
-         </div>
          <div class="col-md-12 col-lg-12">
             <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
                <div class="flex-wrap card-header d-flex justify-content-between">
                   <div class="header-title">
-                     <h4 class="mb-2 card-title">Enterprise Clients</h4>
-                     <p class="mb-0">
-                        <svg class ="me-2 text-primary icon-24" width="24"  viewBox="0 0 24 24">
-                           <path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-                        </svg>
-                        15 new acquired this month
-                     </p>
+                     <h4 class="mb-2 card-title">Рассылки</h4>
                   </div>
                </div>
                <div class="p-0 card-body">
@@ -253,154 +111,38 @@
                      <table id="basic-table" class="table mb-0 table-striped" role="grid">
                         <thead>
                            <tr>
-                              <th>COMPANIES</th>
-                              <th>CONTACTS</th>
-                              <th>ORDER</th>
-                              <th>COMPLETION</th>
+                              <th>Сообщение</th>
+                              <th>Клиентов</th>
+                              <th>Статус</th>
+                              <th>Настройки</th>
                            </tr>
                         </thead>
                         <tbody>
+                        {% for item in mallings_list %}
                            <tr>
                               <td>
-                                 <div class="d-flex align-items-center">
-                                    <img class="rounded bg-soft-primary img-fluid avatar-40 me-3" src="../assets/images/shapes/01.png" alt="profile">
-                                    <h6>Addidis Sportwear</h6>
-                                 </div>
+                                 <a class="d-flex align-items-center" href="{% url 'main:detail_task' item.pk %}">
+                                    <img class="rounded bg-soft-primary img-fluid avatar-40 me-3" src="{% static 'main/assets/images/shapes/01.png' %}" alt="profile">
+                                    <h6>{{ item.message.title }}</h6>
+                                 </a>
                               </td>
                               <td>
                                  <div class="iq-media-group iq-media-group-1">
-                                    <a href="#" class="iq-media-1">
-                                       <div class="icon iq-icon-box-3 rounded-pill">SP</div>
+                                    {% for client in item.clients.all %}
+                                    <a href="{% url 'main:edit_client' client.pk %}" class="iq-media-1">
+                                       <div class="icon iq-icon-box-3 rounded-pill">{{ client.full_name|truncatechars:2 }}</div>
                                     </a>
-                                    <a href="#" class="iq-media-1">
-                                       <div class="icon iq-icon-box-3 rounded-pill">PP</div>
-                                    </a>
-                                    <a href="#" class="iq-media-1">
-                                       <div class="icon iq-icon-box-3 rounded-pill">MM</div>
-                                    </a>
+                                    {% endfor %}
                                  </div>
                               </td>
-                              <td>$14,000</td>
+                              <td>{{ item.mailing_settings.get_status_display }}</td>
                               <td>
-                                 <div class="mb-2 d-flex align-items-center">
-                                    <h6>60%</h6>
-                                 </div>
-                                 <div class="shadow-none progress bg-soft-primary w-100" style="height: 4px">
-                                    <div class="progress-bar bg-primary" data-toggle="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                 </div>
+                                 <a class="mb-2 d-flex align-items-center" href="{% url 'main:edit_settings' item.mailing_settings.pk %}">
+                                    <h6>{{ item.mailing_settings }}</h6>
+                                 </a>
                               </td>
                            </tr>
-                           <tr>
-                              <td>
-                                 <div class="d-flex align-items-center">
-                                    <img class="rounded bg-soft-primary img-fluid avatar-40 me-3" src="../assets/images/shapes/05.png" alt="profile">
-                                    <h6>Netflixer Platforms</h6>
-                                 </div>
-                              </td>
-                              <td>
-                                 <div class="iq-media-group iq-media-group-1">
-                                    <a href="#" class="iq-media-1">
-                                       <div class="icon iq-icon-box-3 rounded-pill">SP</div>
-                                    </a>
-                                    <a href="#" class="iq-media-1">
-                                       <div class="icon iq-icon-box-3 rounded-pill">PP</div>
-                                    </a>
-                                 </div>
-                              </td>
-                              <td>$30,000</td>
-                              <td>
-                                 <div class="mb-2 d-flex align-items-center">
-                                    <h6>25%</h6>
-                                 </div>
-                                 <div class="shadow-none progress bg-soft-primary w-100" style="height: 4px">
-                                    <div class="progress-bar bg-primary" data-toggle="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                 </div>
-                              </td>
-                           </tr>
-                           <tr>
-                              <td>
-                                 <div class="d-flex align-items-center">
-                                    <img class="rounded bg-soft-primary img-fluid avatar-40 me-3" src="../assets/images/shapes/02.png" alt="profile">
-                                    <h6>Shopifi Stores</h6>
-                                 </div>
-                              </td>
-                              <td>
-                                 <div class="iq-media-group iq-media-group-1">
-                                    <a href="#" class="iq-media-1">
-                                       <div class="icon iq-icon-box-3 rounded-pill">PP</div>
-                                    </a>
-                                    <a href="#" class="iq-media-1">
-                                       <div class="icon iq-icon-box-3 rounded-pill">TP</div>
-                                    </a>
-                                 </div>
-                              </td>
-                              <td>$8,500</td>
-                              <td>
-                                 <div class="mb-2 d-flex align-items-center">
-                                    <h6>100%</h6>
-                                 </div>
-                                 <div class="shadow-none progress bg-soft-success w-100" style="height: 4px">
-                                    <div class="progress-bar bg-success" data-toggle="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                 </div>
-                              </td>
-                           </tr>
-                           <tr>
-                              <td>
-                                 <div class="d-flex align-items-center">
-                                    <img class="rounded bg-soft-primary img-fluid avatar-40 me-3" src="../assets/images/shapes/03.png" alt="profile">
-                                    <h6>Bootstrap Technologies</h6>
-                                 </div>
-                              </td>
-                              <td>
-                                 <div class="iq-media-group iq-media-group-1">
-                                    <a href="#" class="iq-media-1">
-                                       <div class="icon iq-icon-box-3 rounded-pill">SP</div>
-                                    </a>
-                                    <a href="#" class="iq-media-1">
-                                       <div class="icon iq-icon-box-3 rounded-pill">PP</div>
-                                    </a>
-                                    <a href="#" class="iq-media-1">
-                                       <div class="icon iq-icon-box-3 rounded-pill">MM</div>
-                                    </a>
-                                    <a href="#" class="iq-media-1">
-                                       <div class="icon iq-icon-box-3 rounded-pill">TP</div>
-                                    </a>
-                                 </div>
-                              </td>
-                              <td>$20,500</td>
-                              <td>
-                                 <div class="mb-2 d-flex align-items-center">
-                                    <h6>100%</h6>
-                                 </div>
-                                 <div class="shadow-none progress bg-soft-success w-100" style="height: 4px">
-                                    <div class="progress-bar bg-success" data-toggle="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                 </div>
-                              </td>
-                           </tr>
-                           <tr>
-                              <td>
-                                 <div class="d-flex align-items-center">
-                                    <img class="rounded bg-soft-primary img-fluid avatar-40 me-3" src="../assets/images/shapes/04.png" alt="profile">
-                                    <h6>Community First</h6>
-                                 </div>
-                              </td>
-                              <td>
-                                 <div class="iq-media-group iq-media-group-1">
-                                    <a href="#" class="iq-media-1">
-                                       <div class="icon iq-icon-box-3 rounded-pill">MM</div>
-                                    </a>
-                                 </div>
-                              </td>
-                              <td>$9,800</td>
-                              <td>
-                                 <div class="mb-2 d-flex align-items-center">
-                                    <h6>75%</h6>
-                                 </div>
-                                 <div class="shadow-none progress bg-soft-primary w-100" style="height: 4px">
-                                    <div class="progress-bar bg-primary" data-toggle="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                 </div>
-                              </td>
-                           </tr>
+                        {% endfor %}
                         </tbody>
                      </table>
                   </div>
@@ -417,7 +159,7 @@
                   <div class="p-4 border border-white rounded primary-gradient-card">
                      <div class="d-flex justify-content-between align-items-center">
                         <div>
-                           <h5 class="font-weight-bold">VISA </h5>
+                           <h5 class="font-weight-bold">МИР </h5>
                            <P class="mb-0">PREMIUM ACCOUNT</P>
                         </div>
                         <div class="master-card-content">
@@ -458,49 +200,21 @@
                            </div>
                         </div>
                         <div class="ms-3">
-                           <h5>1153</h5>
-                           <small class="mb-0">Products</small>
-                        </div>
-                     </div>
-                     <div class="d-flex align-itmes-center">
-                        <div>
-                           <div class="p-3 mb-2 rounded bg-soft-info">
-                              <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1213 11.2331H16.8891C17.3088 11.2331 17.6386 10.8861 17.6386 10.4677C17.6386 10.0391 17.3088 9.70236 16.8891 9.70236H14.1213C13.7016 9.70236 13.3719 10.0391 13.3719 10.4677C13.3719 10.8861 13.7016 11.2331 14.1213 11.2331ZM20.1766 5.92749C20.7861 5.92749 21.1858 6.1418 21.5855 6.61123C21.9852 7.08067 22.0551 7.7542 21.9652 8.36549L21.0159 15.06C20.8361 16.3469 19.7569 17.2949 18.4879 17.2949H7.58639C6.25742 17.2949 5.15828 16.255 5.04837 14.908L4.12908 3.7834L2.62026 3.51807C2.22057 3.44664 1.94079 3.04864 2.01073 2.64043C2.08068 2.22305 2.47038 1.94649 2.88006 2.00874L5.2632 2.3751C5.60293 2.43735 5.85274 2.72207 5.88272 3.06905L6.07257 5.35499C6.10254 5.68257 6.36234 5.92749 6.68209 5.92749H20.1766ZM7.42631 18.9079C6.58697 18.9079 5.9075 19.6018 5.9075 20.459C5.9075 21.3061 6.58697 22 7.42631 22C8.25567 22 8.93514 21.3061 8.93514 20.459C8.93514 19.6018 8.25567 18.9079 7.42631 18.9079ZM18.6676 18.9079C17.8282 18.9079 17.1487 19.6018 17.1487 20.459C17.1487 21.3061 17.8282 22 18.6676 22C19.4969 22 20.1764 21.3061 20.1764 20.459C20.1764 19.6018 19.4969 18.9079 18.6676 18.9079Z" fill="currentColor"></path>
-                              </svg>
-                           </div>
-                        </div>
-                        <div class="ms-3">
-                           <h5>81K</h5>
-                           <small class="mb-0">Order Served</small>
+                           <h5>3</h5>
+                           <small class="mb-0">Видов подписок</small>
                         </div>
                      </div>
                   </div>
                   <div class="mb-4">
                      <div class="flex-wrap d-flex justify-content-between">
-                        <h2 class="mb-2">$405,012,300</h2>
                         <div>
-                           <span class="badge bg-success rounded-pill">YoY 24%</span>
+                           <span class="badge bg-success rounded-pill">Скидка 24%</span>
                         </div>
                      </div>
-                     <p class="text-info">Life time sales</p>
+                     <p class="text-info">Покупай сейчас, пока действует скидка</p>
                   </div>
                   <div class="grid-cols-2 d-grid gap-card">
-                     <button class="p-2 btn btn-primary text-uppercase">SUMMARY</button>
-                     <button class="p-2 btn btn-info text-uppercase">ANALYTICS</button>
-                  </div>
-               </div>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="500">
-               <div class="text-center card-body d-flex justify-content-around">
-                  <div>
-                     <h2 class="mb-2">750<small>K</small></h2>
-                     <p class="mb-0 text-gray">Website Visitors</p>
-                  </div>
-                  <hr class="hr-vertial">
-                  <div>
-                     <h2 class="mb-2">7,500</h2>
-                     <p class="mb-0 text-gray">New Customers</p>
+                     <button class="p-2 btn btn-primary text-uppercase">КУПИТЬ</button>
                   </div>
                </div>
             </div>
@@ -509,51 +223,19 @@
             <div class="card" data-aos="fade-up" data-aos-delay="600">
                <div class="flex-wrap card-header d-flex justify-content-between">
                   <div class="header-title">
-                     <h4 class="mb-2 card-title">Activity overview</h4>
-                     <p class="mb-0">
-                        <svg class ="me-2 icon-24" width="24" height="24" viewBox="0 0 24 24">
-                           <path fill="#17904b" d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z" />
-                        </svg>
-                        16% this month
-                     </p>
+                     <h4 class="mb-2 card-title">Логи</h4>
                   </div>
                </div>
                <div class="card-body">
-                  <div class="mb-2  d-flex profile-media align-items-top">
+                  {% for item in notifications %}
+                  <div class="{% if forloop.last %}mb-1{% else %}mb-2{% endif %} d-flex profile-media align-items-top">
                      <div class="mt-1 profile-dots-pills border-primary"></div>
                      <div class="ms-4">
-                        <h6 class="mb-1 ">$2400, Purchase</h6>
-                        <span class="mb-0">11 JUL 8:10 PM</span>
+                        <h6 class="mb-1 ">{{ item.logs.last.get_status_display }}: {{ item.logs.last.server_response }}</h6>
+                        <span class="mb-0">{{ item.logs.last.timestamp }}</span>
                      </div>
                   </div>
-                  <div class="mb-2  d-flex profile-media align-items-top">
-                     <div class="mt-1 profile-dots-pills border-primary"></div>
-                     <div class="ms-4">
-                        <h6 class="mb-1 ">New order #8744152</h6>
-                        <span class="mb-0">11 JUL 11 PM</span>
-                     </div>
-                  </div>
-                  <div class="mb-2  d-flex profile-media align-items-top">
-                     <div class="mt-1 profile-dots-pills border-primary"></div>
-                     <div class="ms-4">
-                        <h6 class="mb-1 ">Affiliate Payout</h6>
-                        <span class="mb-0">11 JUL 7:64 PM</span>
-                     </div>
-                  </div>
-                  <div class="mb-2  d-flex profile-media align-items-top">
-                     <div class="mt-1 profile-dots-pills border-primary"></div>
-                     <div class="ms-4">
-                        <h6 class="mb-1 ">New user added</h6>
-                        <span class="mb-0">11 JUL 1:21 AM</span>
-                     </div>
-                  </div>
-                  <div class="mb-1  d-flex profile-media align-items-top">
-                     <div class="mt-1 profile-dots-pills border-primary"></div>
-                     <div class="ms-4">
-                        <h6 class="mb-1 ">Product added</h6>
-                        <span class="mb-0">11 JUL 4:50 AM</span>
-                     </div>
-                  </div>
+                  {% endfor %}
                </div>
             </div>
          </div>

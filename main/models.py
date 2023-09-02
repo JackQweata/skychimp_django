@@ -9,8 +9,8 @@ MAILING_PERIOD_CHOICES = (
 )
 
 STATUS_CHOICES = (
-        ('success', 'Успешно'),
-        ('failure', 'Неудачно'),
+    ('success', 'Успешно'),
+    ('failure', 'Неудачно'),
 )
 
 STATUS_SETTINGS = (
@@ -57,19 +57,28 @@ class MailingMessage(models.Model):
         verbose_name_plural = 'Письма'
 
 
-class MailingAttempt(models.Model):
-    timestamp = models.DateTimeField(auto_now_add=True, verbose_name='время последней попытки')
+class LogServers(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, verbose_name='статус попытки')
     server_response = models.TextField(blank=True, null=True, verbose_name='ответ почтового сервера', default='Все ок')
+    timestamp = models.DateTimeField(auto_now_add=True, verbose_name='время последней попытки')
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.server_response}"
+
+
+class MailingAttempt(models.Model):
     mailing_settings = models.ForeignKey(MailingSettings, on_delete=models.CASCADE, verbose_name='Настройка')
     clients = models.ManyToManyField(Client, verbose_name='Клиенты')
     message = models.ForeignKey(MailingMessage, on_delete=models.CASCADE, verbose_name='Письмо')
+    logs = models.ManyToManyField(LogServers, verbose_name='Logs')
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.message} -> {self.mailing_settings}"
 
     class Meta:
-        verbose_name = 'Попытка'
-        verbose_name_plural = 'Попытки'
+        verbose_name = 'Рассылка'
+        verbose_name_plural = 'Рассылки'

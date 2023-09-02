@@ -1,5 +1,5 @@
 {% load static %}
-<div class="header" style="background: url('{% static 'main/assets/images/dashboard/top-image.jpg' %}'); background-size: cover; background-repeat: no-repeat; height: 56vh;position: relative;">
+<div class="header" style="background: url('{% static 'main/assets/images/dashboard/top-image.jpg' %}'); background-size: cover; background-repeat: no-repeat; height: 700px;position: relative;">
         <div class="main-img">
             <div class="container">
                 <svg class="icon-150"  width="150" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@
             <div class="container">
                         <nav class="rounded nav navbar navbar-expand-lg navbar-light top-1">
                             <div class="container-fluid">
-                                <a class="mx-2 navbar-brand" href="#">
+                                <a class="mx-2 navbar-brand" href="{% url 'blog:home' %}">
                                     <!--Logo start-->
                                     <!--logo End-->
 

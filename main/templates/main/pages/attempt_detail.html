@@ -19,8 +19,8 @@
                            <table class="table">
                               <thead>
                                  <tr>
-                                    <th scope="col">Item</th>
-                                    <th class="text-center" scope="col">Quantity</th>
+                                    <th scope="col"></th>
+                                    <th class="text-center" scope="col"></th>
                                  </tr>
                               </thead>
                               <tbody>
@@ -30,7 +30,7 @@
                                        <p class="mb-0">Последней попытки отправки сообщений
                                        </p>
                                     </td>
-                                    <td class="text-center">{{ object.timestamp }}</td>
+                                    <td class="text-center">{{ object.logs.last.timestamp }}</td>
                                  </tr>
                                  <tr>
                                     <td>
@@ -38,7 +38,7 @@
                                        <p class="mb-0">Последней попытки отправки сообщений
                                        </p>
                                     </td>
-                                    <td class="text-center">{{ object.get_status_display }}</td>
+                                    <td class="text-center">{{ object.logs.last.get_status_display }}</td>
                                  </tr>
                                  <tr>
                                     <td>
@@ -55,7 +55,7 @@
                                     </td>
                                     <td class="text-center">
                                        <div class="" style="height: 100px; overflow: auto">
-                                          {{ object.server_response|linebreaksbr }}
+                                          {{ object.logs.all|mergelistserverresponse|linebreaksbr }}
                                        </div>
                                     </td>
                                  </tr>

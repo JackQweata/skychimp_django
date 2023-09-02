@@ -1,5 +1,5 @@
 from django import forms
-from main.models import MailingSettings, Client, MailingAttempt, MailingMessage
+from main.models import MailingSettings, Client, MailingAttempt, MailingMessage, STATUS_SETTINGS
 from main.utils import StyleInputMixin
 
 
@@ -24,6 +24,8 @@ class MailingMessageForm(StyleInputMixin, forms.ModelForm):
 
 
 class MailingAttemptForm(StyleInputMixin, forms.ModelForm):
+
     class Meta:
         model = MailingAttempt
         fields = ('mailing_settings', 'clients', 'message',)
+

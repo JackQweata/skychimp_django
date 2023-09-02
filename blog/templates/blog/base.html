@@ -26,7 +26,11 @@
 
       <div class="wrapper">
     <span class="uisheet screen-darken"></span>
-    {% include 'blog/includes/inc_navbar.html' %}
+
+      {% block castomtop %}
+          {% include 'blog/includes/inc_navbar.html' %}
+      {% endblock %}
+
 
     {% block content %}
     {% endblock %}
@@ -39,7 +43,7 @@
         </a>
     </div>
     <!-- Footer Section Start -->
-    {% include 'blog/includes/inc_footer.html' %}
+    {% include 'main/includes/inc_footer.html' %}
     <!-- Footer Section End -->
       </div>
 

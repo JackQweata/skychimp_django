@@ -1,6 +1,10 @@
 import json
 
-from django.http import HttpResponseForbidden, JsonResponse
+from django.contrib.auth.mixins import PermissionRequiredMixin
+
+from blog.models import BlogPost
+from django.http import JsonResponse
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView
 from main.forms import MailingSettingsForm, ClientUpdateForm, MailingAttemptForm, MailingMessageForm
@@ -10,15 +14,26 @@ from main.utils import FormCreateMixin, OwnerMallingMixin
 from users.models import User
 
 
-class Index(ListView):
-    model = MailingAttempt
-    template_name = 'main/pages/index.html'
+def index(request):
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        self.object = super().get_context_data(**kwargs)
-        self.object['users'] = len(User.objects.all())
-        self.object['messages'] = len(MailingMessage.objects.all())
-        return self.object
+    users_list = User.objects.all() if request.user.is_staff else []
+    messages_list = MailingMessage.objects.all() if request.user.is_staff \
+        else MailingMessage.objects.filter(user=request.user)
+
+    clients_list = Client.objects.all() if request.user.is_staff else Client.objects.filter(user=request.user)
+    mallings_list = MailingAttempt.objects.all() if request.user.is_staff \
+        else MailingAttempt.objects.filter(user=request.user)
+
+    blog_list = BlogPost.objects.all() if request.user.is_staff else []
+
+    context = {
+        'users_list': users_list,
+        'messages_list': messages_list,
+        'clients_list': clients_list,
+        'mallings_list': mallings_list,
+        'blog_list': blog_list,
+    }
+    return render(request, 'main/pages/index.html', context)
 
 
 class MailingSettingsCreateView(FormCreateMixin, CreateView):

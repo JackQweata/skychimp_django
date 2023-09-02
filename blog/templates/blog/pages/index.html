@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-
+{% load media_tags %}
 {% block content %}
  <div class="conatiner-fluid content-inner mt-n5 py-0">
 <div class="row">
@@ -182,34 +182,15 @@
           </div>
         <p class="cases__description">Как SKYCHIMP помогает компаниям привлекать платящих клиентов.</p>
         <div class="row justify-content-between">
+            {% for item in blog_post %}
           <div class="col-md-6 cases__item">
-            <a class="cases__image-wrapper" href="https://www.unisender.com/ru/blog/keysy/setters-education/" target="_blank" rel="noopener">
-              <img class="img-responsive lazyloaded" data-src="https://www.unisender.com/ru/blog/wp-content/uploads/2022/07/setters-education.jpg" width="300" height="156" alt="Рассылка SETTERS EDUCATION. Как собирать подписчиков по щелчку пальцев и поддерживать нереальный опенрейт" src="https://www.unisender.com/ru/blog/wp-content/uploads/2022/07/setters-education.jpg">
+            <a class="cases__image-wrapper" href="{% url 'blog:post' item.slug %}" target="_blank" rel="noopener">
+              <img class="img-responsive lazyloaded" data-src="{% mediapath item.preview_image %}" width="300" height="156" alt="" src="{% mediapath item.preview_image %}">
             </a>
-            <h3>Рассылка SETTERS EDUCATION. Как собирать подписчиков по щелчку пальцев и поддерживать нереальный опенрейт</h3>
-            <a href="https://www.unisender.com/ru/blog/keysy/setters-education/" target="_blank" rel="noopener">Смотреть</a>
+            <h3>{{ item.title }}</h3>
+            <a href="{% url 'blog:post' item.slug %}" rel="noopener">Смотреть</a>
           </div>
-          <div class="col-md-6 cases__item">
-            <a class="cases__image-wrapper" href="https://www.unisender.com/ru/blog/keysy/kejs-jivo-o-srochnom-pereezde-v-unisender-go/" target="_blank" rel="noopener">
-              <img class="img-responsive lazyloaded" data-src="https://www.unisender.com/ru/blog/wp-content/uploads/2023/05/15_kak_skorost_otveta_menegera_povliyala_na-vybor_email_servisa_index.jpg" width="300" height="156" alt="Как Jivo за 5 дней переехали с Amazon SES на Unisender Go" src="https://www.unisender.com/ru/blog/wp-content/uploads/2023/05/15_kak_skorost_otveta_menegera_povliyala_na-vybor_email_servisa_index.jpg">
-            </a>
-            <h3>Как Jivo за 5 дней переехали с Amazon SES на Unisender Go</h3>
-            <a href="https://www.unisender.com/ru/blog/keysy/kejs-jivo-o-srochnom-pereezde-v-unisender-go/" target="_blank" rel="noopener">Смотреть</a>
-          </div>
-          <div class="col-md-6 cases__item">
-            <a class="cases__image-wrapper" href="https://www.unisender.com/ru/blog/keysy/stradarium-newsletter/" target="_blank" rel="noopener">
-              <img class="img-responsive lazyloaded" data-src="https://www.unisender.com/ru/blog/wp-content/uploads/2022/12/stradarium-oblozhka-3.jpg" width="300" height="156" alt="Рассылка Страдариума. Как общаться с подписчиками от первого лица и получать 50% открываемости" src="https://www.unisender.com/ru/blog/wp-content/uploads/2022/12/stradarium-oblozhka-3.jpg">
-            </a>
-            <h3>Рассылка Страдариума. Как общаться с подписчиками от первого лица и получать 50% открываемости</h3>
-            <a href="https://www.unisender.com/ru/blog/keysy/stradarium-newsletter/" target="_blank" rel="noopener">Смотреть</a>
-          </div>
-          <div class="col-md-6 cases__item">
-            <a class="cases__image-wrapper" href="https://www.unisender.com/ru/blog/keysy/detective-story/" target="_blank" rel="noopener">
-              <img class="img-responsive lazyloaded" data-src="https://www.unisender.com/ru/blog/wp-content/uploads/2022/11/6_detektiv-glav.jpg" width="300" height="156" alt="Unisender забанил нас за спам. Но я вычислила виновника и всё исправила" src="https://www.unisender.com/ru/blog/wp-content/uploads/2022/11/6_detektiv-glav.jpg">
-            </a>
-            <h3>Unisender забанил нас за спам. Но я вычислила виновника и всё исправила</h3>
-            <a href="https://www.unisender.com/ru/blog/keysy/detective-story/" target="_blank" rel="noopener">Смотреть</a>
-          </div>
+            {% endfor %}
         </div>
           <div class="d-flex justify-content-center">
             <a class="btn btn-primary" rel="noopener" href="{% url 'blog:blogs' %}" target="_blank">Все кейсы</a>

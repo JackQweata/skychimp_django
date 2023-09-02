@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+{% load media_tags %}
+
+{% block content %}
+<div class="conatiner-fluid content-inner mt-n5 py-0 pb-5">
+  <div class="row">
+    <div class="bd-example">
+            <div class="row  row-cols-1 row-cols-md-2 g-4">
+                {% for item in object_list %}
+                <a class="col" href="{% url 'blog:post' item.slug %}">
+                    <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{% mediapath item.preview_image %}" class="card-img-top" alt="{{ item.title }}">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.title }}</h5>
+                            <p class="card-text">{{ item.content|truncatechars:100 }}</p>
+                            <p class="card-text"><small class="text-muted">{{ item.created_at }}</small></p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+
+  </div>
+</div>
+{% endblock %}
