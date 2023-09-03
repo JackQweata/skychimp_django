@@ -9,4 +9,9 @@ Cервис управления рассылками, администриро�
   1. pip install -r requirements.txt
   2. python manage.py migrate
   3. python manage.py scu
+
+
+# Доступы
+1. ADMIN: admin@sky.pro - 123
+2. MANAGER: manager@sky.pro - 123
   
