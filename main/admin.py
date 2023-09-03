@@ -10,9 +10,7 @@ class UserAdmin(admin.ModelAdmin):
     fields = ('is_active',)
 
 
-@admin.register(MailingSettings)
-class MailingSettings(admin.ModelAdmin):
-    fields = ('status',)
+admin.site.register(MailingSettings)
 
 
 @admin.register(MailingMessage)
