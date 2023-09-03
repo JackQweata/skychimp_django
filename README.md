@@ -4,19 +4,9 @@
 Cервис управления рассылками, администрирования и получения статистики.
 
 # Настройки
-### 1) заполнить .env:
-   
-  CACHE_ENABLED=True
-  CACHE_LOCATION=redis://127.0.0.1:6379
-  BD_NAME=****
-  BD_USER=postgres
-  BD_PASSWORD=****
-  BD_PORT=5440
-  EMAIL_HOST=****
-  EMAIL_PASSWORD=****
-
+### 1) заполнить .env
 ### 3) выполнить команды:
-  -) pip install -r requirements.txt
-  -) python manage.py migrate
-  -) python manage.py scu
+  1. pip install -r requirements.txt
+  2. python manage.py migrate
+  3. python manage.py scu
   
